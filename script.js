@@ -1,6 +1,6 @@
 const bottonehome = document.getElementById("bottone");
 bottonehome.addEventListener("click", function() {
-    window.location.href = "home.html";
+    window.location.href = "index.html";
 });
 
 const bottone_back = document.getElementById("bottone_in");
