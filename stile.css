@@ -1,0 +1,56 @@
+body {
+  background-color: rgb(0, 232, 248); /* Prova un colore evidente per test */
+}
+h1{
+    text-align:center; font-size:40px;font-family: sans-serif;
+}
+h2{
+    font-family: sans-serif;
+    font-size: 35px;
+}
+#centro{
+    font-family: sans-serif;
+    font-size: 40px;
+    text-align: center;
+}
+a:link, a:visited {
+  color: black;      /* Sostituisci 'black' con il colore che preferisci */
+  text-decoration: none; /* Rimuove anche la sottolineatura */
+}
+
+#bottone {
+    position: absolute; /* Lo stacca dal flusso normale del testo */
+    top: 20px;          /* Distanza dal bordo superiore */
+    right: 20px;        /* Distanza dal bordo destro */
+    
+    /* Aggiungiamo un po' di stile per farlo sembrare un vero tasto FIFA */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#bottone:hover {
+    background-color: #0056b3; /* Cambia colore quando ci passi sopra */
+}
+#bottone_in {
+    position: absolute; /* Lo stacca dal flusso normale del testo */
+    top: 20px;          /* Distanza dal bordo superiore */
+    left: 20px;      /* Distanza dal bordo destro */
+    
+    /* Aggiungiamo un po' di stile per farlo sembrare un vero tasto FIFA */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#bottone_in:hover {
+    background-color: #0056b3; /* Cambia colore quando ci passi sopra */
+}
