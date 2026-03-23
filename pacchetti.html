@@ -1,12 +1,49 @@
-<html>
-    <head>
-  <link rel="stylesheet" type="text/css" href="stile.css">
-        <title>PACCHETTI</title>
-    </head>
-    <body>
-        <h1>PACCHETTI</h1>
-        <button id="bottone">HOME</button>
-        <h2 id="centro"><a href="https://wheelofnames.com/">SPECIAL PACK</a></h2>
-                <script src="script.js"></script>
-    </body>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="stile.css">
+    <title>PACCHETTI</title>
+    <style>
+        /* Aggiunta rapida per centrare le ruote */
+        .container-ruota {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        iframe {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+    </style>
+</head>
+<body>
+        <div id="overlay" class="overlay"></div>
+
+    <!-- Barra di Navigazione -->
+<nav class="navbar">
+    <!-- Aggiunta classe 'active' a Home -->
+    <a href="index.html" class="nav-item">Home</a>
+    <a href="pacchetti.html" class="nav-item active">Pacchetti</a>
+    <a href="player.html" class="nav-item">Player</a>
+    <a href="carte.html" class="nav-item">Carte</a>
+
+    <h1 class="nav-title">PACCHETTI</h1>
+</nav>
+        <h2><a href="#random">RANDOM </a></h2>
+        <h2><a href="#special_pack">SPECIAL PACK </a></h2>
+    <!-- PACCHETTO 1 -->
+    <div class="container-ruota">
+        <!-- Sostituisci l'URL qui sotto con quello della tua ruota salvata -->
+        <iframe id="random" src="https://wheelofnames.com/v4n-yjr" width="80%" height="500px"></iframe>
+    </div>
+
+    <!-- PACCHETTO 2 (Esempio di come aggiungerne un altro) -->
+    <div class="container-ruota">
+        <!-- Ogni iframe deve avere un link diverso per essere indipendente -->
+        <iframe id="special_pack" src="https://wheelofnames.com/sda-se8" width="80%" height="500px"></iframe>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
