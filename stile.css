@@ -1,29 +1,27 @@
 body {
-  background-color: rgb(0, 232, 248); /* Prova un colore evidente per test */
+    background-color: rgb(0, 232, 248);
+    margin: 0; /* Rimuove i bordi bianchi fastidiosi */
 }
-h1{
-    text-align:center; font-size:40px;font-family: sans-serif;
-}
-h2{
+
+/* Regole generali per i testi */
+h2 {
     font-family: sans-serif;
     font-size: 35px;
 }
-#centro{
+
+#centro {
     font-family: sans-serif;
     font-size: 40px;
     text-align: center;
 }
+
 a:link, a:visited {
-  color: black;      /* Sostituisci 'black' con il colore che preferisci */
-  text-decoration: none; /* Rimuove anche la sottolineatura */
+    color: black;
+    text-decoration: none;
 }
 
-#bottone {
-    position: absolute; /* Lo stacca dal flusso normale del testo */
-    top: 20px;          /* Distanza dal bordo superiore */
-    right: 20px;        /* Distanza dal bordo destro */
-    
-    /* Aggiungiamo un po' di stile per farlo sembrare un vero tasto FIFA */
+/* BOTTONI (Mantenuti come i tuoi) */
+#bottone, #bottone_su, #bottone_in {
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
@@ -31,26 +29,90 @@ a:link, a:visited {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    font-family: sans-serif;
 }
 
-#bottone:hover {
-    background-color: #0056b3; /* Cambia colore quando ci passi sopra */
-}
-#bottone_in {
-    position: absolute; /* Lo stacca dal flusso normale del testo */
-    top: 20px;          /* Distanza dal bordo superiore */
-    left: 20px;      /* Distanza dal bordo destro */
-    
-    /* Aggiungiamo un po' di stile per farlo sembrare un vero tasto FIFA */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+#bottone { position: fixed; top: 20px; right: 20px; }
+#bottone_in { position: absolute; top: 20px; left: 20px; }
+#bottone_su { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+
+#bottone:hover, #bottone_in:hover, #bottone_su:hover {
+    background-color: #0056b3;
 }
 
-#bottone_in:hover {
-    background-color: #0056b3; /* Cambia colore quando ci passi sopra */
+/* BARRA DI NAVIGAZIONE */
+.navbar {
+    background-color: #232f3e;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+    position: fixed; /* Fissa la barra in alto */
+    top: 0;          /* Attaccata al bordo superiore */
+    width: 100%;     /* Occupa tutta la larghezza */
+    z-index: 1000;   /* Sta sopra a tutto */
+    transition: top 0.3s; /* Animazione fluida di 0.3 secondi */
+}
+
+/* Questa classe verrà aggiunta da JS per nascondere la barra */
+.navbar--hidden {
+    top: -60px; /* Si sposta verso l'alto di quanto è alta la barra */
+}
+
+/* Importante: aggiungi un margine al body così il contenuto non finisce SOTTO la barra all'inizio */
+body {
+    padding-top: 60px; 
+}
+
+
+/* Titolo FIFA 23 allineato */
+/* Titolo FIFA 23 sulla destra */
+.nav-title {
+    color: white; /* Testo bianco */
+    font-family: sans-serif;
+    font-size: 24px;
+    margin: 0;
+    margin-left: auto; /* Lo spinge tutto a destra */
+    padding-right: 40px;
+}
+
+/* Link del menu */
+.nav-item {
+    color: white !important; /* Forza il colore bianco */
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+/* Classe per la pagina corrente (Active) */
+.nav-item.active {
+    border-bottom: 3px solid white; /* Crea la linetta bianca */
+    font-weight: bold;              /* Opzionale: rende il testo più marcato */
+    padding-bottom: 5px;            /* Distanzia leggermente la linea dal testo */
+}
+
+/* Rimuovi eventuali stili rimasti per l'hamburger che non serve più */
+.all-menu, .hamburger {
+    display: none;
+}
+
+
+.nav-item:hover {
+    border: 1px solid white;
+}
+
+.hamburger {
+    font-size: 20px;
+}
+
+/* SIDEBAR E OVERLAY (Mantenuti come prima) */
+.sidebar {
+    height: 100%; width: 0; position: fixed; z-index: 1000;
+    top: 0; left: 0; background-color: white; overflow-x: hidden;
+    transition: 0.3s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+}
+
+.overlay {
+    display: none; position: fixed; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.7); z-index: 999;
 }
