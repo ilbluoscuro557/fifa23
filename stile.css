@@ -1,118 +1,96 @@
 body {
     background-color: rgb(0, 232, 248);
-    margin: 0; /* Rimuove i bordi bianchi fastidiosi */
+    margin: 0;
+    padding-top: 80px; /* Aumentato per dare respiro sotto la navbar */
 }
 
-/* Regole generali per i testi */
-h2 {
-    font-family: sans-serif;
-    font-size: 35px;
+/* --- MODIFICA FONDAMENTALE PER IL DECK --- */
+.deck-carte {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;      /* FONDAMENTALE: permette alle carte di andare a capo */
+    justify-content: center; /* Centra le carte negli schermi piccoli */
+    gap: 15px;            /* Aumentato lo spazio tra le carte per chiarezza */
+    padding: 20px;        /* Padding uniforme invece di solo a sinistra */
+    margin-top: 10px;
 }
 
-#centro {
-    font-family: sans-serif;
-    font-size: 40px;
-    text-align: center;
+.fifa-card {
+    width: 250px;         /* Larghezza base */
+    max-width: 45%;       /* Impedisce che la carta sia più grande di metà schermo su telefoni piccoli */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Transizione fluida per l'hover */
 }
 
-a:link, a:visited {
-    color: black;
-    text-decoration: none;
+/* --- OTTIMIZZAZIONE PER SCHERMI PICCOLI (MEDIA QUERIES) --- */
+@media (max-width: 768px) {
+    .nav-title {
+        display: none;    /* Nasconde "FIFA 23" su schermi molto piccoli per far spazio ai link */
+    }
+    
+    .navbar {
+        justify-content: center;
+        padding: 0 10px;
+    }
+
+    .fifa-card {
+        width: 180px;     /* Rimpicciolisce le carte sui tablet/telefoni */
+    }
 }
 
-/* BOTTONI (Mantenuti come i tuoi) */
-#bottone, #bottone_su, #bottone_in {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: sans-serif;
+@media (max-width: 480px) {
+    .fifa-card {
+        width: 140px;     /* Ancora più piccole sui telefoni stretti */
+    }
+    
+    .nav-item {
+        font-size: 14px;  /* Testo menu più piccolo */
+        padding: 5px 8px;
+    }
 }
 
-#bottone { position: fixed; top: 20px; right: 20px; }
-#bottone_in { position: absolute; top: 20px; left: 20px; }
-#bottone_su { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+/* --- RESTO DEL TUO CODICE (Pulito e mantenuto) --- */
 
-#bottone:hover, #bottone_in:hover, #bottone_su:hover {
-    background-color: #0056b3;
-}
+h2 { font-family: sans-serif; font-size: 35px; }
+#centro { font-family: sans-serif; font-size: 100px; text-align: center; padding-top: 50px30px;}
+#posizione{font-family: sans-serif; font-size: 50px; padding-left: 20px;}
+a:link, a:visited { color: black; text-decoration: none; }
 
-/* BARRA DI NAVIGAZIONE */
 .navbar {
     background-color: #232f3e;
     display: flex;
     align-items: center;
     padding: 0 20px;
     height: 60px;
-    position: fixed; /* Fissa la barra in alto */
-    top: 0;          /* Attaccata al bordo superiore */
-    width: 100%;     /* Occupa tutta la larghezza */
-    z-index: 1000;   /* Sta sopra a tutto */
-    transition: top 0.3s; /* Animazione fluida di 0.3 secondi */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s;
+    box-sizing: border-box; /* Assicura che il padding non sballi la larghezza 100% */
 }
 
-/* Questa classe verrà aggiunta da JS per nascondere la barra */
-.navbar--hidden {
-    top: -60px; /* Si sposta verso l'alto di quanto è alta la barra */
-}
-
-/* Importante: aggiungi un margine al body così il contenuto non finisce SOTTO la barra all'inizio */
-body {
-    padding-top: 60px; 
-}
-
-
-/* Titolo FIFA 23 allineato */
-/* Titolo FIFA 23 sulla destra */
 .nav-title {
-    color: white; /* Testo bianco */
+    color: white;
     font-family: sans-serif;
     font-size: 24px;
-    margin: 0;
-    margin-left: auto; /* Lo spinge tutto a destra */
+    margin-left: auto;
     padding-right: 40px;
 }
 
-/* Link del menu */
 .nav-item {
-    color: white !important; /* Forza il colore bianco */
+    color: white !important;
     text-decoration: none;
     padding: 10px 15px;
     font-size: 16px;
     font-family: sans-serif;
 }
-/* Classe per la pagina corrente (Active) */
-.nav-item.active {
-    border-bottom: 3px solid white; /* Crea la linetta bianca */
-    font-weight: bold;              /* Opzionale: rende il testo più marcato */
-    padding-bottom: 5px;            /* Distanzia leggermente la linea dal testo */
-}
 
-/* Rimuovi eventuali stili rimasti per l'hamburger che non serve più */
-.all-menu, .hamburger {
-    display: none;
-}
+.nav-item:hover { border: 1px solid white; }
+.nav-item.active { border-bottom: 3px solid white; font-weight: bold; }
 
-
-.nav-item:hover {
-    border: 1px solid white;
-}
-
-.hamburger {
-    font-size: 20px;
-}
-
-/* SIDEBAR E OVERLAY (Mantenuti come prima) */
-.sidebar {
-    height: 100%; width: 0; position: fixed; z-index: 1000;
-    top: 0; left: 0; background-color: white; overflow-x: hidden;
-    transition: 0.3s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.3);
-}
-
-.overlay {
-    display: none; position: fixed; width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.7); z-index: 999;
+.fifa-card:hover {
+    transform: scale(1.05); /* Ridotto leggermente per evitare che esca dallo schermo */
+    z-index: 10;
 }
